@@ -9,6 +9,9 @@ export UPLOAD_DIR=mozilla-release/obj-x86_64-apple-darwin/dist/
 export GECKO_PATH=`pwd`/mozilla-release
 export MOZ_PRODUCT_VERSION=$(cat $GECKO_PATH/browser/config/version.txt)
 export MAR_CHANNEL_ID=firefox-ghostery-release
+export MKFSHFS=$MOZ_FETCHES_DIR/hfsplus-tools/newfs_hfs
+export DMG_TOOL=$MOZ_FETCHES_DIR/dmg/dmg
+export HFS_TOOL=$MOZ_FETCHES_DIR/dmg/hfsplus
 
 mkdir -p $MOZ_FETCHES_DIR/aarch64
 mkdir -p $MOZ_FETCHES_DIR/x64
