@@ -23,7 +23,9 @@ do
   ./mozilla-release/taskcluster/scripts/misc/unify.sh
   mv $UPLOAD_DIR/target.dmg $DMG_PATH
   # create unified mar
-  $GECKO_PATH/tools/update-packaging/make_full_update.sh $UPLOAD_DIR/update/${DMG%.dmg}.complete.mar $DMG_PATH
+  rm -rf $UPLOAD_DIR/*.app
+  $GECKO_PATH/mach python -m mozbuild.action.unpack_dmg $DMG_PATH $UPLOAD_DIR/
+  $GECKO_PATH/tools/update-packaging/make_full_update.sh $UPLOAD_DIR/update/${DMG%.dmg}.complete.mar $UPLOAD_DIR/*.app
 done
 
 rm -rf ./aarch64
